@@ -1,0 +1,212 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+:root{
+    --primary-text-color: #183b56;
+    --secondary-text-color: #577592;
+    --accent-color: #2294ed;
+    --accent-color-dark: #1d69a3;
+}
+body{
+    font-family: "Oswald", sans-serif;
+    color: var(--primary-text-color);
+}
+p{
+    font-family: "Playfair Display", sans-serif;
+    color: var(--secondary-text-color);
+    line-height: 1.4rem;
+}
+a{
+    text-decoration: none;
+}
+ul{
+    list-style: none;
+}
+.flex{
+    display: flex;
+    align-items: center;
+}
+.container{
+    max-width: 1180px;
+    margin-inline: auto;
+    overflow: hidden;
+}
+nav{
+    background-color: #f3faff;
+    box-shadow: 0 0 4px #bbd0e2;
+    position: fixed;
+    top: 0;
+    z-index: 100;
+    left: 0;
+    right: 0;
+}
+.main-nav{
+    justify-content: space-between;
+    padding-block: 8px;
+}
+.company-logo img{
+    width: 150px;
+}
+
+.nav-links ul{
+    gap: 100px; 
+    /* size is diff */
+}
+.hover-link{
+    cursor: pointer;
+}
+.hover-link:hover{
+    color: #FB006D;
+}
+.hover-link:active{
+    color: #FB006D;
+}
+
+.nav-item.active{
+    color: #FB006D;
+}
+
+.search-bar{
+    height: 32px;
+    gap: 8px;
+}
+.news-input{
+    width: 200px;
+    height: 100%;
+    padding-inline: 12px;
+    border-radius: 4px;
+    border: 2px solid #bbd0e2;
+    font-family: "Oswald", sans-serif;
+}
+.search-button{
+    background-color: #FB006D;
+    color: white;
+    padding: 8px 24px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-family: "Oswald", sans-serif;
+}
+.search-button:hover{
+    background-color: lightcoral;
+}
+main {
+    padding-block: 20px;
+    margin-top: 80px;
+}
+.cards-container{
+    justify-content: space-between;
+    flex-wrap: wrap;
+    row-gap: 20px;
+    align-items: start;
+}
+.card{
+    width: 360px;
+    min-height: 400px;
+    box-shadow: 0 0 4px #d4ceff;
+    border-radius: 4px;
+    background-color: #fff;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+.card:hover{
+    box-shadow: 1px 1px 8px #d4ecff;
+    background-color: rgb(249, 220, 233);
+    transform: translateY(-2px);
+}
+.card-header img{
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+}
+.card-content{
+    padding: 12px;
+}
+.news-source{
+    margin-block: 12px;
+}
+
+/* Dark Mode Variables */
+body.dark {
+    --primary-text-color: #e0e0e0;
+    --secondary-text-color: #b0b0b0;
+    --accent-color: #bb86fc;
+    --accent-color-dark: #3700b3;
+    background-color: #121212;
+    color: var(--primary-text-color);
+}
+body.dark nav {
+    background-color: #1f1f1f;
+    box-shadow: 0 0 4px #333;
+}
+body.dark .card {
+    background-color: #1e1e1e;
+    box-shadow: 0 0 6px #333;
+}
+body.dark .card:hover {
+    background-color: #2a2a2a;
+}
+body.dark .news-input {
+    background-color: #2b2b2b;
+    color: #fff;
+    border-color: #444;
+}
+body.dark .search-button {
+    background-color: #bb86fc;
+}
+body.dark .search-button:hover {
+    background-color: #a675fc;
+}
+
+
+/* Toggle Button */
+.theme-toggle {
+    position: relative;
+    width: 60px;
+    height: 32px;
+    margin-left: 20px;
+}
+#toggle-checkbox {
+    display: none;
+}
+.toggle-label {
+    width: 100%;
+    height: 100%;
+    background-color: #ccc;
+    border-radius: 50px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 5px;
+    position: relative;
+    transition: background-color 0.3s ease;
+}
+.toggle-label .icon {
+    width: 20px;
+    height: 20px;
+    fill: #fff;
+}
+.toggle-ball {
+    width: 28px;
+    height: 28px;
+    background-color: #fff;
+    position: absolute;
+    border-radius: 50%;
+    left: 2px;
+    top: 2px;
+    transition: transform 0.3s ease;
+    z-index: 1;
+}
+
+/* Toggle ON */
+#toggle-checkbox:checked + .toggle-label {
+    background-color: #555;
+}
+#toggle-checkbox:checked + .toggle-label .toggle-ball {
+    transform: translateX(28px);
+}
