@@ -8,9 +8,21 @@ function reload(){
 }
 
 async function fetchNews (query){
-    const res = await fetch(`${url}${query}&apiKey=${API_KEY}`);
-    const data = await res.json();
-    bindData(data.articles);
+    // const res = await fetch(`${url}${query}&apiKey=${API_KEY}`);
+    // const data = await res.json();
+    // bindData(data.articles);
+    try {
+        const res = await fetch(`/api/news?query=${query}`);
+        const data = await res.json();
+
+        if (!data.articles || !Array.isArray(data.articles)) {
+            throw new Error("Invalid news data");
+        }
+
+        bindData(data.articles);
+    } catch (error) {
+        console.error("Failed to fetch news:", error);
+    }
 }
 
 function bindData(articles){
